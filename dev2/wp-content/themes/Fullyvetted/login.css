@@ -1,0 +1,47 @@
+/*Custom login page */
+
+body.login {background-image: url('http://fullyvetted.co.uk/dev2/wp-content/themes/Fullyvetted/images/bg_tile.jpg');}
+
+.login h1 a { 
+	background-image:url('http://fullyvetted.co.uk/dev2/wp-content/themes/Fullyvetted/images/img_LOGIN.png') !important;
+	width: 459px;
+	height: 225px;
+	background-size: 459px 225px;
+	margin-left: -140px;
+	margin-bottom: -160px;
+ }
+
+input.button-primary, button.button-primary, a.button-primary {
+border-color: #fff;
+}
+
+.login form {
+	border-radius: 15px;
+}
+
+.login #nav a, .login #backtoblog a {
+	color: #E9A327 !important;
+	}
+
+div.updated, .login .message {
+	color:#fff;
+	font-weight: bold;
+	background-color: #E9A327;
+	border-color: #E9A327;
+	border-radius: 15px;
+}
+
+div.error, .login #login_error {
+	color:#fff;
+	background-color: #c8626f;
+	border-color: #c8626f;
+	border-radius: 15px;
+	padding:20px;
+	-webkit-box-shadow: rgba(200, 200, 200, 0.7) 0 4px 10px -1px;
+	box-shadow: rgba(200, 200, 200, 0.7) 0 4px 10px -1px;
+}
+
+a, #adminmenu a, #the-comment-list p.comment-author strong a, #media-upload a.del-link, #media-items a.delete, .plugins a.delete, .ui-tabs-nav a {
+	color: #fff;
+	font-weight: bold;
+}

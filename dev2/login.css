@@ -1,0 +1,7 @@
+/*Custom login page */
+
+body.login {background-image: url('images/bg_tile.jpg');}
+
+h1 a { background-image:url('images/img_LOGIN.png') !important; }
+
+
