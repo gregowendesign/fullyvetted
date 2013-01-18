@@ -22,4 +22,23 @@
           </div><!--wrap-->
         </div>  <!--content-->
 
+<?php get_footer(); ?>ting sub menu -->
+          		</div>
+
+
+            </div><!--leftCol-->
+            <div class="rightLinks">
+                <h2>Recent blog articles...</h2>
+                <ul>
+                  <?php
+                      $args = array( 'numberposts' => 10 );
+                      $lastposts = get_posts( $args );
+                      foreach($lastposts as $post) : setup_postdata($post); ?>
+                      <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+                      <?php endforeach; ?>
+                </ul>               
+            </div>
+          </div><!--wrap-->
+        </div>  <!--content-->
+
 <?php get_footer(); ?>

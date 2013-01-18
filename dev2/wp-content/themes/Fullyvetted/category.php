@@ -38,3 +38,23 @@
 
 
 <?php get_footer(); ?>
+        </ul>
+
+                <?php else: ?>
+                Sorry, there are currently no posts to display in <?php echo single_cat_title( '', false ); ?>
+                <?php endif; ?>
+            </div><!--leftCol-->
+            
+            <div class="rightLinks">
+                <h2>Pet Care</h2>
+                <ul>
+                  <?php wp_list_categories('orderby=ID&title_li=&hierarchical=0&show_count=1') ?>
+                </ul> 
+            </div>
+          </div><!--wrap-->
+        </div>  <!--content-->
+	
+
+
+
+<?php get_footer(); ?>

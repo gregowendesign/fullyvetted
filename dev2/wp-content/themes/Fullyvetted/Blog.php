@@ -35,4 +35,19 @@
 /*
 Template Name: Blog
 */
+?>   <h2>Categories</h2>
+                <ul>
+                  <?php wp_list_categories('orderby=ID&title_li=&hierarchical=0'); ?>
+                </ul> 
+            </div>
+          </div><!--wrap-->
+        </div>  <!--content-->
+              
+            	
+<?php get_footer(); ?>
+
+<?php
+/*
+Template Name: Blog
+*/
 ?>

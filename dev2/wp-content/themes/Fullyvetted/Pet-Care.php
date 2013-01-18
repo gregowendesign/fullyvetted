@@ -36,3 +36,17 @@
 Template Name: Pet Care
 */
 ?>
+<?php echo category_description(); ?>
+
+                <?php endwhile; else: ?>
+                  <p><?php _e('Sorry, this page is empty.'); ?></p>
+                <?php endif; ?>
+
+              </div>  
+            </div><!--fullWidth-->
+          </div><!--wrap-->
+        </div>  <!--content-->
+
+
+<?php get_footer(); ?>
+
