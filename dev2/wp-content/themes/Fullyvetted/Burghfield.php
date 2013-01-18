@@ -5,7 +5,7 @@
             <div class="headerTagline">
               <h1>...caring for you and your pet</h1>
             </div><!--headerTagline-->
-            <div id="leftCol">
+            <div class="leftCol">
               <div class="subLogo"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/img_burghfieldLogo.png" name="Burghfield Veterinary Surgery" alt="Burghfield Veterinary Surgery"></div>
               <h1 class="leftCol"><?php echo get_post_meta(22, 'vet_name', true); ?></h1>
                 <div class="vetOverview">
@@ -18,7 +18,7 @@
                 <p><?php echo get_post_meta(22, 'vet_desc', true); ?>
                 <div class="btn register">
                   <!--ADD link to contact page-->
-                  <a href="#"><span class="btnText">Register Your Pet</span></a>
+                  <a href="<?php bloginfo('url'); ?>/?page_id=13"><span class="btnText">Register Your Pet</span></a>
                 </div><!--btn-->
                 <h1 class="burghfieldTeam">Meet the Burghfield team</h1>
 
@@ -29,7 +29,7 @@
                 <!--Insert loop to get all staff for Burghfield-->
                 
                  <?php
-                    $args = array( 'post_type' => 'staff', 'category_name' => 'burghfield', 'order' => 'ASC');
+                    $args = array( 'post_type' => 'staff', 'location' => 'burghfield', 'order' => 'ASC', 'posts_per_page' => '-1');
                     $loop = new WP_Query( $args );
 
                     
@@ -39,27 +39,23 @@
                       $pets = get_post_meta(get_the_ID(), 'staff_pets', true);
                       ?>
 
-                        <?php echo '<div class="memberItemBurgh">'?>
+                        <div class="memberItemBurgh">
                         <?php the_post_thumbnail(); ?>
-                        <?php echo '<h2>'?>
-                        <?php the_title(); ?>
-                        <?php echo '</h2>' ?>
+                        <h2><?php the_title(); ?></h2>
                         <?php echo $creds ?>
-                        <?php echo '<br>' ?>
+                        <br>
                         <?php echo $title ?>
-                        <?php echo '<br><span class="greenText">' ?>
-                        <?php echo $pets ?>
-                        <?php echo '</span>' ?>
-                        <?php echo '</div>'; ?>
+                        <br><span class="greenText"><?php echo $pets ?></span>
+                        </div>
                        
                       <?php endwhile; ?>
 
 <!--********************************************************************************************************-->
 
             </div><!--leftCol-->
-            <div id="rightCol">
+            <div class="rightCol">
               <div class="btnRight goringBtn">
-                  <a href="<?php bloginfo('url'); ?>/goring"><span class="btnTextGoring">Goring Veterinary Centre</span></a>
+                  <a href="<?php bloginfo('url'); ?>/?page_id=5"><span class="btnTextGoring">Goring Veterinary Centre</span></a>
               </div><!--btn-->              
               <div class="mapStyle">
                 <iframe width="390" height="360" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps?ie=UTF8&amp;q=burghfield+vets+map&amp;fb=1&amp;gl=uk&amp;hq=vets&amp;hnear=0x48769c03c7a15215:0x4bdbdbb4ebc3aaae,Burghfield,+West+Berkshire&amp;cid=0,0,4520204691774221330&amp;t=m&amp;ll=51.398456,-1.052585&amp;spn=0.004819,0.008368&amp;z=16&amp;output=embed"></iframe></div><!--MAPSTYLE-->
@@ -77,9 +73,7 @@
             </div>
           </div><!--wrap-->
         </div>  <!--content-->
-        <footer>
-          <div id="footer">
-            <div id="wrap">
+
 <?php get_footer(); ?>
 
 <?php

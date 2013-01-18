@@ -26,7 +26,7 @@
                   <p><?php echo get_post_meta(24, 'vet_address1', true); ?>
                   </br><?php echo get_post_meta(24, 'vet_address2', true); ?>
                   </br><?php echo get_post_meta(24, 'vet_Postcode', true); ?> 
-                  <p><span class="smallIcon"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/img_phoneBlue.gif"></span></span><?php echo get_post_meta(22, 'vet_tel', true); ?>  
+                  <p><span class="smallIcon"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/img_phoneBlue.gif"></span></span><?php echo get_post_meta(24, 'vet_tel', true); ?>  
                 </div>
               </div>
               <div id="footerLinks">
@@ -38,14 +38,17 @@
                 </div>
                 <div class="column">
                   <h1>Pet Care</h1>
-                    <ul>
-                      <?php wp_list_categories('orderby=ID&child_of=6&title_li=&hierarchical=0') ?>
-                    </ul>
+                    <ul><?php wp_list_categories( array(
+                          'taxonomy' => 'subjects',
+                          'title_li' => ''
+                         ) );
+                        ?>
+                    </ul> 
                 </div>
                 <div class="column">
                   <h1>Pet Health Club</h1>
                     <ul>
-                      <!--<?php wp_list_pages('child_of=67&sort_column=menu_order&title_li=&depth=1') ?>-->
+                      <a href="<?php bloginfo('url'); ?>/?page_id=106"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/img_PetClubFooter.png" name="Pet Health Club" alt="<?php the_title(); ?>"></a>
                     </ul>
                 </div>
 
@@ -67,10 +70,6 @@
             </br> Website by <a href="http://www.gregowendesign.co.uk" title="gregowendesign">gregowendesign</a></span>
           </div>  
         </div>  
-      </div><!--container-->
-    </div><!--wrapper-->  
-  </body>
-</html>   </div>  
       </div><!--container-->
     </div><!--wrapper-->  
   </body>

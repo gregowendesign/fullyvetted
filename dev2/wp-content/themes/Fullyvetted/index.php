@@ -12,12 +12,13 @@
               <h2><span class="line1">Burghfield and Goring Vets</span>
               </br><span class="line2">...caring for you and your pet</h2></span>
             </div> -->
+            <!--
             <div class="pethealthBanner">
               <h1 class="petHealth">Pet Health Club</h1>
-            </div>              
+            </div> -->              
           </div>
         </div>  <!--content -->
 
 
 
-<?php get_footer(); ?>?php get_footer(); ?>
+<?php get_footer(); ?>

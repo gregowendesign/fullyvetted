@@ -5,7 +5,7 @@
             <div class="headerTagline">
               <h1>...caring for you and your pet</h1>
             </div><!--headerTagline-->
-            <div id="leftCol">
+            <div class="leftCol">
               <div class="subLogo"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/img_goringLogo.png" name="Burghfield Veterinary Surgery" alt="Burghfield Veterinary Surgery"></div>
               <h1 class="leftCol"><?php echo get_post_meta(24, 'vet_name', true); ?></h1>
                 <div class="vetOverview">
@@ -17,7 +17,7 @@
                 </div><!--vetOverview-->
                 <p><?php echo get_post_meta(24, 'vet_desc', true); ?>
                 <div class="btn register">
-                  <a href="#"><span class="btnText">Register Your Pet</span></a>
+                  <a href="<?php bloginfo('url'); ?>/?page_id=13"><span class="btnText">Register Your Pet</span></a>
                 </div><!--btn-->
                 <h1 class="goringTeam">Meet the Goring team</h1>
 
@@ -27,7 +27,7 @@
                 <!--Insert loop to get all staff for Goring-->
                 
                  <?php
-                    $args = array( 'post_type' => 'staff', 'category_name' => 'goring', 'order' => 'ASC' );
+                    $args = array( 'post_type' => 'staff', 'location' => 'goring', 'order' => 'ASC', 'posts_per_page' => '-1' );
                     $loop = new WP_Query( $args );
 
                     
@@ -37,27 +37,23 @@
                       $pets = get_post_meta(get_the_ID(), 'staff_pets', true);
                       ?>
 
-                        <?php echo '<div class="memberItemGoring">'?>
+                        <div class="memberItemGoring">
                         <?php the_post_thumbnail(); ?>
-                        <?php echo '<h2>'?>
-                        <?php the_title(); ?>
-                        <?php echo '</h2>' ?>
+                        <h2><?php the_title(); ?></h2>
                         <?php echo $creds ?>
-                        <?php echo '<br>' ?>
+                        <br>
                         <?php echo $title ?>
-                        <?php echo '<br><span class="blueText">' ?>
-                        <?php echo $pets ?>
-                        <?php echo '</span>' ?>
-                        <?php echo '</div>'; ?>
+                        <br><span class="blueText"><?php echo $pets ?></span>
+                        </div>
                        
                       <?php endwhile; ?>
 
 <!--********************************************************************************************************-->
 
             </div><!--leftCol-->
-            <div id="rightCol">
+            <div class="rightCol">
               <div class="btnRight burghfieldBtn">
-                  <a href="<?php bloginfo('url'); ?>/burghfield"><span class="btnTextBurghfield">Burghfield Veterinary Surgery</span></a>
+                  <a href="<?php bloginfo('url'); ?>/?page_id=2"><span class="btnTextBurghfield">Burghfield Veterinary Surgery</span></a>
               </div><!--btn-->              
               <div class="mapStyle">
 <iframe width="390" height="360" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps?q=rg8+9ar&amp;hl=en&amp;sll=52.8382,-2.327815&amp;sspn=9.362701,26.784668&amp;t=m&amp;hnear=Goring+RG8+9AR,+United+Kingdom&amp;ie=UTF8&amp;hq=&amp;ll=51.522737,-1.13657&amp;spn=0.019226,0.033388&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
@@ -76,9 +72,7 @@
             </div>
           </div><!--wrap-->
         </div>  <!--content-->
-        <footer>
-          <div id="footer">
-            <div id="wrap">
+
             	
 <?php get_footer(); ?>
 

@@ -1,22 +1,18 @@
 <?php
 
+/* test for Burghfield page */
 if (is_page('2') ) {
-include(TEMPLATEPATH . '/headerBurghfield.php');
+include(TEMPLATEPATH . '/shared/headerBurghfield.php');
 }
 
+/* test for Goring page */
 elseif (is_page('5') ) {
-include(TEMPLATEPATH . '/headerGoring.php');
+include(TEMPLATEPATH . '/shared/headerGoring.php');
 }
 
-elseif (is_home() )  {
-include(TEMPLATEPATH . '/headerHome.php');
-}
-
-else {
-include(TEMPLATEPATH . '/headerOther.php');
-}
-
-?>clude(TEMPLATEPATH . '/shared/headerBlog.php');
+/* test for Blog page */
+elseif (is_page('11') ) {
+include(TEMPLATEPATH . '/shared/headerBlog.php');
 }
 
 /* test for Blog posts */

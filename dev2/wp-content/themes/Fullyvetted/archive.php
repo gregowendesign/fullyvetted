@@ -1,69 +1,43 @@
-<?php
-/**
- * The template for displaying Archive pages.
- *
- * Used to display archive-type pages if nothing more specific matches a query.
- * For example, puts together date-based pages if no date.php file exists.
- *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- *
- * @package WordPress
- * @subpackage Twenty_Eleven
- * @since Twenty Eleven 1.0
- */
+<?php get_header(); ?>
 
-get_header(); ?>
+	<div id="content">
+          <div id="wrap">
+            <div class="headerTagline">
+              <h1>...caring for you and your pet</h1>
+            </div><!--headerTagline-->
+            <div class="leftCol">
+              <div class="subLogo"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/img_fullyvettedLogo.png" name="Fullyvetted.co.uk" alt="<?php the_title(); ?>"></div>
 
-		<section id="primary">
-			<div id="content" role="main">
+              <?php if ( have_posts() ): ?>
 
-			<?php if ( have_posts() ) : ?>
+              <h1 class="leftCol"><?php the_title(); ?></h1>
 
-				<!--<header class="page-header">
-					<h1 class="page-title">
-						<?php if ( is_day() ) : ?>
-							<?php printf( __( 'Daily Archives: %s', 'twentyeleven' ), '<span>' . get_the_date() . '</span>' ); ?>
-						<?php elseif ( is_month() ) : ?>
-							<?php printf( __( 'Monthly Archives: %s', 'twentyeleven' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'twentyeleven' ) ) . '</span>' ); ?>
-						<?php elseif ( is_year() ) : ?>
-							<?php printf( __( 'Yearly Archives: %s', 'twentyeleven' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'twentyeleven' ) ) . '</span>' ); ?>
-						<?php else : ?>
-							<?php _e( 'Blog Archives', 'twentyeleven' ); ?>
-						<?php endif; ?>
-					</h1>
-				</header> -->
+                <ul>
+                  <?php while ( have_posts() ) : the_post(); ?>
+                    <li>
+                        <a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a>
+                        </br>
+                        <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> <?php the_time(); ?></time>
+                    </li>
+              
+                  <?php endwhile; ?>
+                </ul>
 
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
+                <?php else: ?>
+                Sorry, there are currently no posts to display in <?php echo single_cat_title( '', false ); ?>
+                <?php endif; ?>
+            </div><!--leftCol-->
+            
+            <div class="rightLinks">
+                <h2>Pet Care</h2>
+                <ul>
+                  <!--<?php wp_list_pages('child_of=62&sort_column=menu_order&title_li=&depth=1') ?> -->
+                  <?php wp_list_categories('orderby=ID&child_of=6&title_li=&hierarchical=0&show_count=1') ?>
+                </ul> 
+            </div>
+          </div><!--wrap-->
+        </div>  <!--content-->
+	
 
-					<?php
-						/* Include the Post-Format-specific template for the content.
-						 * If you want to overload this in a child theme then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'content', get_post_format() );
-					?>
-
-				<?php endwhile; ?>
-
-				<?php twentyeleven_content_nav( 'nav-below' ); ?>
-
-			<?php else : ?>
-
-				<article id="post-0" class="post no-results not-found">
-					<header class="entry-header">
-						<h1 class="entry-title"><?php _e( 'Nothing Found', 'twentyeleven' ); ?></h1>
-					</header><!-- .entry-header -->
-
-					<div class="entry-content">
-						<p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'twentyeleven' ); ?></p>
-						<?php get_search_form(); ?>
-					</div><!-- .entry-content -->
-				</article><!-- #post-0 -->
-
-			<?php endif; ?>
-
-			</div><!-- #content -->
-		</section><!-- #primary -->
 
 <?php get_footer(); ?>
